@@ -1,0 +1,197 @@
+{
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": true,
+    "vim.commandLineModeKeyBindingsNonRecursive": [
+
+    ],
+    "workbench.settings.applyToAllProfiles": [
+        "vim.vimrc.path"
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+
+
+
+
+
+        {
+            "before": ["j"],
+            "after": ["h"]
+        },
+        {
+            "before": ["k"],
+            "after": ["j"]
+        },
+        {
+            "before": ["l"],
+            "after": ["k"]
+        },
+        {
+            "before": ["ö"],
+            "after": ["l"]
+        },
+        {
+            "before": ["+"],
+            "after": ["$"]
+        },
+        {
+            "before": ["<leader>","e"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["<leader>","g","h"],
+            "commands": ["editor.action.dirtydiff.next"]
+        },
+        {
+            "before": ["<leader>", "d"],
+            "after": ["\"","8","d"]
+        },
+        {
+            "before": ["<leader>", "y"],
+            "after": ["\"","8","y"]
+        },
+        {
+            "before": ["<leader>", "p"],
+            "after": ["\"","8","p"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "after": ["\"","8","x"]
+        },
+        {
+            "before": ["<C-p>"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>","e"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["<C-d>"],
+            "after": ["<C-d>","z","z"]
+        },
+        {
+            "before": ["<C-u>"],
+            "after": ["<C-u>", "z", "z"]
+        },
+        {
+            "before": ["n"],
+            "after": ["n","z","z","z","v"]
+        },
+        {
+            "before": ["N"],
+            "after": ["N","z","z","z","v"]
+        }, 
+        {
+            "before": ["<C-j>"], // Focus split window at left
+            "commands": ["workbench.action.focusLeftGroup"]
+        },
+        {
+            "before": ["<C-k>"], // Focus split window at right
+            "commands": ["workbench.action.previousEditorInGroup"],
+            "when": ["!activeEditorGroupEmpty"],
+        },
+        {
+            "before": ["<C-l>"], // Focus split window at above
+            "commands": ["workbench.action.nextEditorInGroup"],
+            "when": ["!activeEditorGroupEmpty"],
+        },
+        {
+            "before": ["<leader>","-"], // Focus split window at below
+            "commands": ["workbench.action.focusRightGroup"]
+        },
+        {
+            "before": ["<C-q>"], // Focus split window at below
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
+            "before": ["N"],
+            "after": ["N","z","z","z","v"]
+        },
+        {
+            "before": ["|"], // Split tab vertically
+            "after": ["<C-w>", "v"]
+        },
+        {
+            "before": ["_"], // Split tab horizontally
+            "after": ["<C-w>", "s"]
+        }
+    ],
+    "vim.highlightedyank.duration": 100,
+    "vim.leader": "<space>",
+    "vim.targets.enable": true,
+    "explorer.confirmDragAndDrop": false,
+    "git.autofetch": true,
+    "workbench.editor.showTabs": "none",
+    "workbench.sideBar.location": "right",
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "dineug.erd-editor.theme.appearance": "dark",
+    "dineug.erd-editor.theme.grayColor": "gray",
+    "dineug.erd-editor.theme.accentColor": "orange",
+    "window.openWithoutArgumentsInNewWindow": "off",
+    "editor.cursorSurroundingLines": 8,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5) ",
+    "multiCommand.commands": [
+    
+        {
+            "command": "multiCommand.spaceminusvim",
+            "sequence": [
+                { "command": "vim.remap", "args": { "after": ["<Space>", "-"] } }
+            ]
+        },
+        {
+            "command": "multiCommand.ctrl_k_vim",
+            "sequence": [
+                { "command": "vim.remap", "args": { "after": ["<C-k>"] } }
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["<C-k>"], // Focus split window at right
+            "commands": ["workbench.action.previousEditorInGroup"],
+            "when": ["!activeEditorGroupEmpty"],
+        },
+        {
+            "before": ["<C-l>"], // Focus split window at above
+            "commands": ["workbench.action.nextEditorInGroup"],
+            "when": ["!activeEditorGroupEmpty"],
+        },
+    ],
+	"terminal.integrated.env.windows": {
+        "DIASBLE_UPDATE_PROMPT": "true"
+    },
+    "vim.neovimConfigPath": "C:\\Users\\ahaj\\AppData\\Local\\nvim\\init.lua",
+    "vim.neovimUseConfigFile": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vim.neovimPath": "C:\\Users\\ahaj\\bin\\nvim-win64\\bin\\nvim.exe",
+    "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\ahaj\\bin\\nvim-win64\\bin\\nvim.exe",
+    "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\ahaj\\AppData\\Local\\nvim\\init.lua",
+    "vscode-neovim.ctrlKeysForInsertMode": [
+        "a",
+        "c",
+        "d",
+        "h",
+        "j",
+        "m",
+        "o",
+        "r",
+        "t",
+        "u",
+        "w",
+        "k"
+    ],
+    "vscode-neovim.compositeKeys": {
+
+    },
+    "editor.lineNumbers": "off",
+    "hdinsight.azureEnvironment": "Azure",
+}
+
