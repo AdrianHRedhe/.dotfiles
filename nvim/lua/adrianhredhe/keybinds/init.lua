@@ -1,12 +1,12 @@
 -- COMMON KEYBINDS
-require "keybinds.common-keybinds"
+require "adrianhredhe.keybinds.common-keybinds"
 
 -- VSCODE SPECIFIC BINDINGS:
 if vim.g.vscode then
     -- VSCODE Neovim
-    require "keybinds.vscode-keybinds"
+    require "adrianhredhe.keybinds.vscode-keybinds"
 else
     -- Ordinary Neovim
-    require "keybinds.keybinds"
+    require "adrianhredhe.keybinds.keybinds"
 end
 
