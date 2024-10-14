@@ -1,3 +1,7 @@
+-- Modify Lua package path to include 'adrianhredhe/'
+local config_path = vim.fn.stdpath('config') .. '/lua/adrianhredhe/'
+package.path = package.path .. ';' .. config_path .. '?.lua'
+
 -- Install lazy.nvim if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -28,7 +32,7 @@ require("lazy").setup({
     },
 
     -- vim-surround plugin
-    require "plugins/vim-surround",
+    require "adrianhredhe/plugins/vim-surround",
     -- repeat plugin 
     require "plugins/vim-repeat",
     --  This is for another

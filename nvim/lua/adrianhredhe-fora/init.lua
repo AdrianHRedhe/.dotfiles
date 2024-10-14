@@ -1,4 +1,7 @@
--- VSCODE SPECIFIC BINDINGS:
+require "adrianhredhe.keybinds"
+require "adrianhredhe.options"
+
+-- Dont load plugins to vscode
 if vim.g.vscode then
     -- VSCODE Neovim
 else
@@ -6,5 +9,3 @@ else
     require "adrianhredhe/plugins"
 end
 
-require "adrianhredhe.keybinds"
-require "adrianhredhe.options"
