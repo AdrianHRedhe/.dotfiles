@@ -1,52 +1,52 @@
 -- Modify Lua package path to include 'adrianhredhe/'
-local config_path = vim.fn.stdpath('config') .. '/lua/adrianhredhe/'
-package.path = package.path .. ';' .. config_path .. '?.lua'
+local config_path = vim.fn.stdpath("config") .. "/lua/adrianhredhe/"
+package.path = package.path .. ";" .. config_path .. "?.lua"
 
 -- Install lazy.nvim if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-
 -- Setup Lazy.nvim and load plugins
 require("lazy").setup({
-    -- Tokyonight theme
---    require "plugins/tokyonight-theme"
-    
-    {
-    "folke/tokyonight.nvim",
-    priority = 1000, -- Ensure it loads first
-    config = function()
-      vim.cmd([[colorscheme tokyonight]])
-    end,
-    },
+	-- Tokyonight theme
+	--    require "plugins/tokyonight-theme"
+	{
+		"folke/tokyonight.nvim",
+		priority = 1000, -- Ensure it loads first
+		config = function()
+			vim.cmd([[colorscheme tokyonight]])
+		end,
+	},
 
-    -- vim-surround plugin
-    require "adrianhredhe/plugins/vim-surround",
-    -- repeat plugin 
-    require "plugins/vim-repeat",
-    --  This is for another
-    require "plugins/vim-fanfingtastic",
-    --  NERDTREE
-    require "plugins/nerdtree",
-    -- TELESCOPE
-    require "plugins.telescope",
-    -- WHICH KEY
-    require "plugins.which-key",
-    -- LSP MASON
-    --require "plugins.mason",
-    -- LSP MASON CONF
-    --require "plugins.mason-conf"
+	-- vim-surround plugin
+	require("plugins.vim-surround"),
+	-- repeat plugin
+	require("plugins.vim-repeat"),
+	--  This is for another
+	require("plugins.vim-fanfingtastic"),
+	--  NERDTREE
+	require("plugins.nerdtree"),
+	-- TELESCOPE
+	require("plugins.telescope"),
+	-- WHICH KEY
+	require("plugins.which-key"),
+	-- LSP kickstart
+	require("plugins.lsp-kickstart"),
+	-- GITSIGNS
+	require("plugins.gitsigns"),
+	--require "plugins.mason",
+	-- LSP MASON CONF
+	--require "plugins.mason-conf"
 })
 
 --[[
@@ -131,4 +131,5 @@ cmp.setup({
     { name = 'luasnip' },    -- Snippet completions
   },
 })
-]]--
+]]
+--
