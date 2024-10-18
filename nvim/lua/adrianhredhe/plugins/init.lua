@@ -49,4 +49,7 @@ require("lazy").setup({
 	require("plugins.treesitter-kickstart"),
 	require("plugins.mini-kickstart"),
 	require("plugins.todo-comments"),
+
+	-- HARPOON
+	require("plugins.harpoon"),
 })
