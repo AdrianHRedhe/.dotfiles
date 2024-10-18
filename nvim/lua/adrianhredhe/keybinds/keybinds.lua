@@ -9,4 +9,6 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Telescope find buf
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Telescope help_tags" })
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", { desc = "Telescope keymaps" })
 
--- FROM KICKSTART
+-- Buffers
+keymap("n", "<C-S-K>", ":bprev<CR>", opts)
+keymap("n", "<C-S-L>", ":bprev<CR>", opts)
