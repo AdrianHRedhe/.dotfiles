@@ -1,5 +1,5 @@
 	--require "plugins.mason",
-	-- LSP MASON CONF
+	-- LSP globally replaced with replacer.nvim MASON CONF
 	--require "plugins.mason-conf"
 --[[
 -- Setup MASON
