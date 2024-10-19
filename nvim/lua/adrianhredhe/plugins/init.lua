@@ -52,4 +52,13 @@ require("lazy").setup({
 
 	-- HARPOON
 	require("plugins.harpoon"),
+
+	-- REPLACER FOR QUICKFIXLIST
+	require("plugins.replacer"),
+
+	-- UNDO TREE
+	require("plugins.undotree"),
+
+	-- SUBSTITUTION
+	require("plugins.substitute"),
 })
