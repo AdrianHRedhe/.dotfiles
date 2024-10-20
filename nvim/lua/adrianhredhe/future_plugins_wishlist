@@ -1,5 +1,6 @@
-undotreeZZ
-vim_cool
+mini.ai
+toggleterm.nvim
+
 molten.nvim
 markdown-preview.nvim
 fzf-checkout
@@ -9,11 +10,6 @@ fugitive
 
 vim-peekaboo
 git-blame.nvim
-vim-mundo
+
 # browse git commits
 gv.vim
-
-replaceWithRegister
-vim-ReplaceWithSameInd
-
-comment.nvim
