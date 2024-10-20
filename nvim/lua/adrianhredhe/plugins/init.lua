@@ -34,8 +34,6 @@ require("lazy").setup({
 	require("plugins.vim-repeat"),
 	--  This is for another
 	require("plugins.vim-fanfingtastic"),
-	--  NERDTREE
-	require("plugins.nerdtree"),
 	-- TELESCOPE
 	require("plugins.telescope"),
 	-- WHICH KEY
@@ -44,6 +42,9 @@ require("lazy").setup({
 	require("plugins.lsp-kickstart"),
 	-- GITSIGNS
 	require("plugins.gitsigns"),
+	-- NVIM-TREE
+	require("plugins.nvim-web-devicons"),
+	require("plugins.nvim-tree"),
 
 	-- kickstart plugins:
 	require("plugins.treesitter-kickstart"),
@@ -61,4 +62,12 @@ require("lazy").setup({
 
 	-- SUBSTITUTION
 	require("plugins.substitute"),
+
+	-- TROUBLE
+	require("plugins.trouble"),
+
+	-- DRESSING (NICE UI FOR RENAMING THINGS)
+	require("plugins.dressing"),
+	-- AutoPairs
+	require("plugins.autopairs"),
 })
