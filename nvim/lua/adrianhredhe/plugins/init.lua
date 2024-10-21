@@ -70,4 +70,6 @@ require("lazy").setup({
 	require("plugins.dressing"),
 	-- AutoPairs
 	require("plugins.autopairs"),
+	-- FTERM
+	require("plugins.fterm"),
 })
