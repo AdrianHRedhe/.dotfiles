@@ -38,9 +38,9 @@ keymap("n", "|", "<C-w>v", opts)
 --keymap('n', '_', '<C-w>s', opts)
 
 -- memory management
-keymap("n", "<leader>d", [["md]], opts)
-keymap("n", "<leader>y", [["my]], opts)
-keymap("n", "<leader>p", [["mp]], opts)
+--keymap("n", "<leader>d", [["md]], opts)
+--keymap("n", "<leader>y", [["my]], opts)
+--keymap("n", "<leader>p", [["mp]], opts)
 --keymap('n', '<leader>c', [["_dP]], opts)
 
 -- leader / utility
