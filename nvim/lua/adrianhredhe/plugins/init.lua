@@ -72,4 +72,5 @@ require("lazy").setup({
 	require("plugins.autopairs"),
 	-- FTERM
 	require("plugins.fterm"),
+	require("plugins.noice"),
 })
