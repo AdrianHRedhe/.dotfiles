@@ -1,7 +1,8 @@
 mini.ai
-toggleterm.nvim
 
-molten.nvim
+auto-session
+dad-bod
+
 markdown-preview.nvim
 fzf-checkout
 vim-flog?
