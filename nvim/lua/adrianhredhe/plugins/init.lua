@@ -73,4 +73,7 @@ require("lazy").setup({
 	-- FTERM
 	require("plugins.fterm"),
 	require("plugins.noice"),
+
+	-- Auto Session
+	require("plugins.auto-session"),
 })

@@ -1,16 +1,33 @@
 return {
 	"rmagatti/auto-session",
+	lazy = false,
 	config = function()
-		local auto_session = require("auto-session")
-
-		auto_session.setup({
-			auto_restore_enabled = false,
-			auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+		require("auto-session").setup({
+			session_lens = {
+				-- If load_on_setup is false, make sure you use `:SessionSearch` to open the picker as it will initialize everything first
+				load_on_setup = true,
+				previewer = false,
+				mappings = {
+					-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
+					delete_session = { "i", "<nop>" },
+					alternate_session = { "i", "<nop>" },
+					copy_session = { "i", "<nop>" },
+				},
+				theme_conf = {
+					border = true,
+					-- layout_config = {
+					--   width = 0.8, -- Can set width and height as percent of window
+					--   height = 0.5,
+					-- },
+				},
+				suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+				vim.keymap.set(
+					"n",
+					"<leader>wr",
+					require("auto-session.session-lens").search_session,
+					{ desc = "[W]orkspace session [R]estore search" }
+				),
+			},
 		})
-
-		local keymap = vim.keymap
-
-		keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
-		keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
 	end,
 }
