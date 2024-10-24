@@ -52,5 +52,13 @@ return {
 		vim.keymap.set("n", "<leader>fn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[f]ind [N]eovim files" })
+
+		-- Shortcut for changing your workdirectory
+		vim.keymap.set(
+			"n",
+			"<leader>wd",
+			":exec 'cd' . expand('%:p:h')<CR>",
+			{ desc = "refresh [W]orking [D]irectory", noremap = true, silent = true }
+		)
 	end,
 }
