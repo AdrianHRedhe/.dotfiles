@@ -1,5 +1,6 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 12
 
 vim.opt.textwidth = 60
 vim.opt.tabstop = 4
@@ -7,6 +8,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.swapfile = false
 
 --vim.opt.syntax = on
 vim.opt.ignorecase = true
@@ -17,8 +19,12 @@ vim.opt.incsearch = true
 --vim.opt.termencoding = utf8
 
 -- undodir
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+if vim.g.vscode then
+	-- NOTHING
+else
+	vim.opt.undofile = true
+	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+end
 
 -- system clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -31,6 +37,10 @@ vim.cmd([[
     augroup end
 ]])
 
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- COOL NVIM
 require("adrianhredhe.options.cool-nvim")
 
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- My Molten Cells
+require("adrianhredhe.options.molten-my-cell")
