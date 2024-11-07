@@ -10,5 +10,12 @@ keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Telescope help_t
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", { desc = "Telescope keymaps" })
 
 -- Buffers
-keymap("n", "<C-S-K>", ":bprev<CR>", opts)
-keymap("n", "<C-S-L>", ":bprev<CR>", opts)
+keymap("n", "<C-K>", ":bprev<CR>", opts)
+keymap("n", "<C-L>", ":bnext<CR>", opts)
+
+keymap("n", "<space>k", "K", opts)
+keymap("n", "J", "<c-w>h", opts)
+keymap("n", "L", "<c-w>k", opts)
+keymap("n", "K", "<c-w>j", opts)
+keymap("n", "Ö", "<c-w>l", opts)
+keymap("n", "<c-j>", "J", opts)
