@@ -57,8 +57,8 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader>wd",
-			":exec 'cd' . expand('%:p:h')<CR>",
-			{ desc = "refresh [W]orking [D]irectory", noremap = true, silent = true }
+			":exec 'cd ' . expand('%:p:h')<CR>",
+			{ desc = "[W]orking [D]irectory change", noremap = true, silent = true }
 		)
 	end,
 }
