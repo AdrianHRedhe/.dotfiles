@@ -7,6 +7,11 @@ return {
 		--		vim.g.molten_output_win_max_height = 12
 		vim.g.molten_auto_open_output = false
 		vim.g.molten_virt_text_output = true
+		vim.g.molten_wrap_output = true
+
+		vim.g.molten_enter_output_behavior = "open_and_enter"
+		vim.g.moltern_output_show_exec_time = true
+
 		-- SUGGESTED KEYBINDS
 		vim.keymap.set("n", "<localleader>mi", ":MoltenInit<CR>", { silent = true, desc = "Initialize the plugin" })
 		vim.keymap.set("n", "<leader>ml", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
@@ -31,7 +36,7 @@ return {
 			":MoltenEvaluateOperator<CR>",
 			{ silent = true, desc = "run operator selection" }
 		)
-
+		-- Custom run command
 		vim.keymap.set(
 			"n",
 			"<leader>r",
@@ -39,5 +44,13 @@ return {
 			--":lua print(vim.fn.search('# %%', 'bW'))",
 			{ silent = true, desc = "run operator selection" }
 		)
+		-- Interupt current run.
+		vim.keymap.set("n", "<C-c>", ":MoltenInterrupt<CR>")
+		vim.keymap.set("n", "gmn", function()
+			vim.fn.search("^# %%", "W")
+		end)
+		vim.keymap.set("n", "gmN", function()
+			vim.fn.search("^# %%", "bW")
+		end)
 	end,
 }
