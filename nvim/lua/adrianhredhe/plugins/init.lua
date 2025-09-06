@@ -27,7 +27,14 @@ require("lazy").setup({
 			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
-
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd([[colorscheme catppuccin]])
+	-- 	end,
+	-- },
 	-- vim-surround plugin
 	require("plugins.vim-surround"),
 	-- repeat plugin
@@ -76,4 +83,10 @@ require("lazy").setup({
 
 	-- Auto Session
 	require("plugins.auto-session"),
+
+	require("plugins.oil"),
+	require("plugins.molten"),
+	require("plugins.fugitive"),
+	require("plugins.gv"),
+	require("plugins.dadbod"),
 })

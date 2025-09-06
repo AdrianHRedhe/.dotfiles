@@ -60,5 +60,9 @@ return {
 			":exec 'cd ' . expand('%:p:h')<CR>",
 			{ desc = "[W]orking [D]irectory change", noremap = true, silent = true }
 		)
+
+		vim.keymap.set("n", "<leader>fr", function()
+			builtin.registers()
+		end, { desc = "[F]ind [R]egisters" })
 	end,
 }
