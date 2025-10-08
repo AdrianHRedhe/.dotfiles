@@ -1,3 +1,0 @@
-#require("theprimeagen")
-require "adrianhredhe"
-
