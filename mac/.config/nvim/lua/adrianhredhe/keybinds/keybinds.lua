@@ -14,8 +14,8 @@ keymap("n", "<C-K>", ":bprev<CR>", opts)
 keymap("n", "<C-L>", ":bnext<CR>", opts)
 
 keymap("n", "<space>k", "K", opts)
-keymap("n", "J", "<c-w>h", opts)
-keymap("n", "L", "<c-w>k", opts)
-keymap("n", "K", "<c-w>j", opts)
-keymap("n", "Ö", "<c-w>l", opts)
+keymap("n", "√", "<c-w>h", opts) -- This is Alt-j
+keymap("n", "ª", "<c-w>k", opts) -- This is Alt-k
+keymap("n", "ﬁ", "<c-w>j", opts) -- This is Alt-l
+keymap("n", "ø", "<c-w>l", opts) -- This is Alt-ö
 keymap("n", "<c-j>", "J", opts)

@@ -89,6 +89,8 @@ require("lazy").setup({
 	require("plugins.fugitive"),
 	require("plugins.gv"),
 	require("plugins.dadbod"),
+
+	require("plugins.tmux_navigator"),
 })
 
 require("plugins.dadbod_connections")
