@@ -199,6 +199,8 @@ unsetopt LIST_BEEP
 xset b off
 
 
-
+funcpath="$HOME/.shell/autoload"
+FPATH="$funcpath:$FPATH"
+autoload ${=$(cd "$funcpath" && echo *)}
 
 # alias remove_input_files_from_git = "git ls-files | grep -i input | xargs git rm --cached"
