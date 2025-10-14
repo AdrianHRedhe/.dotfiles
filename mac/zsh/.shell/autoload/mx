@@ -8,11 +8,32 @@
 
 local name="$1"
 
+
+# If no argument, use fzf to select from existing sessions (if any exist)
 if [ -z "$name" ]; then
-  tmux ls -F '#S' -f '#{?#{m:_popup_*,#S},0,1}'
-  return
+  # Check if tmux server is running
+  if tmux info &>/dev/null; then
+    local sessions=$(tmux ls -F '#S' -f '#{?#{m:_popup_*,#S},0,1}')
+    
+    if [ -n "$sessions" ]; then
+      # Sessions exist - use fzf to select
+      name=$(echo "$sessions" | fzf --height=40% --reverse --prompt="Select session: ")
+      # If user cancelled fzf (ESC), just return
+      if [ -z "$name" ]; then
+        return
+      fi
+    else
+      # Server running but no sessions - default to current directory
+      name="."
+    fi
+  else
+    # No tmux server running - default to current directory
+    name="."
+  fi
 fi
 
+
+# Handle directory-based naming
 if [[ "$name" = .* ]]; then
   local prev="$PWD"
   if cd "$name"; then
@@ -25,12 +46,16 @@ fi
 
 name="${name//./-}"
 
+# If not in tmux, create or attach to session
 if [ -z "$TMUX" ]; then
   tmux new-session -A -s "$name"
   return
 fi
+
 local wait_for="mx_window_moves_$name"
 local window_count="$(tmux display -p '#{session_windows}')"
+
+# Session exists - switch to it
 if tmux has -t "$name" 2> /dev/null; then
   if [ "$window_count" = 1 ]; then
     tmux new-window -d "tmux wait-for '$wait_for'"
@@ -40,6 +65,7 @@ if tmux has -t "$name" 2> /dev/null; then
     wait-for -S "$wait_for"
   echo "switched to: $name"
 else
+  # Session doesn't exist - create it
   if [ "$window_count" = 1 ]; then
     tmux rename-session "$name"
     echo "renamed to: $name"
