@@ -11,6 +11,9 @@ setopt extended_glob
 export BAT_THEME="Catppuccin Mocha"
 
 
+source ~/.shell/alias.sh
+
+
 
 eval "$(fzf --zsh)"
 source ~/fzf-git.sh/fzf-git.sh
