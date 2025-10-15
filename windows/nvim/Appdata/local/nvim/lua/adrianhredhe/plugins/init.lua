@@ -96,6 +96,8 @@ require("lazy").setup({
 	-- MOLTEN
 	require("plugins.molten"),
 
+	-- Dadbod
+	require("plugins.dadbod"),
 	-- DBEE
 	-- require("plugins.dbee"),
 	-- IRON
