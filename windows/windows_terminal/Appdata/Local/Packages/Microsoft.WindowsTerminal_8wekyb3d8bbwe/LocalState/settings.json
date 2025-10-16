@@ -1,0 +1,135 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{95c845be-49ba-4737-b9e1-735614a8154e}",
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "backgroundImage": null,
+            "colorScheme": "Dark+",
+            "font": 
+            {
+                "face": "MesloLGS Nerd Font Mono",
+                "size": 11
+            },
+            "opacity": 85,
+            "useAcrylic": true
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "altGrAliasing": true,
+                "bellStyle": "none",
+                "colorScheme": "Dark+",
+                "commandline": "C:\\Users\\ahaj\\AppData\\Local\\Programs\\Git\\bin\\sh.exe",
+                "compatibility.reloadEnvironmentVariables": false,
+                "font": 
+                {
+                    "face": "MesloLGS Nerd Font Mono",
+                    "size": 11
+                },
+                "guid": "{95c845be-49ba-4737-b9e1-735614a8154e}",
+                "hidden": false,
+                "historySize": 2000,
+                "icon": "C:\\Users\\ahaj\\AppData\\Local\\Programs\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "name": "Bash",
+                "opacity": 80,
+                "padding": "0",
+                "scrollbarState": "hidden",
+                "snapOnInput": false,
+                "startingDirectory": "~",
+                "useAcrylic": true
+            },
+            {
+                "altGrAliasing": false,
+                "bellStyle": "none",
+                "commandline": "C:\\Users\\ahaj\\AppData\\Local\\Programs\\Git\\usr\\bin\\zsh.exe",
+                "compatibility.reloadEnvironmentVariables": false,
+                "guid": "{e8cb6abb-8578-4c72-b798-5d569a20f5e7}",
+                "hidden": false,
+                "historySize": 2000,
+                "icon": "C:\\Users\\ahaj\\OneDrive - Fora AB\\Bilder\\Screenshots\\Screenshot 2024-09-13 162410.png",
+                "name": "zsh",
+                "snapOnInput": false,
+                "startingDirectory": "~"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": [],
+    "useAcrylicInTabRow": false
+}
