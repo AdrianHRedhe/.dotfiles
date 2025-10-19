@@ -18,4 +18,24 @@ return {
 			wrap = true,
 		},
 	},
+
+	-- Shortcut for changing your workdirectory
+	vim.keymap.set("n", "<leader>wd", function()
+		-- Check if we're in an Oil buffer
+		if vim.bo.filetype == "oil" then
+			local oil = require("oil")
+			local dir = oil.get_current_dir()
+			if dir then
+				vim.cmd("cd " .. vim.fn.fnameescape(dir))
+				print("CWD changed to: " .. dir)
+			end
+		else
+			-- Regular file: change to file's directory
+			local filepath = vim.fn.expand("%:p:h")
+			if filepath ~= "" then
+				vim.cmd("cd " .. vim.fn.fnameescape(filepath))
+				print("CWD changed to: " .. filepath)
+			end
+		end
+	end, { desc = "[W]orking [D]irectory change", noremap = true, silent = true }),
 }

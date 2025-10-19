@@ -66,14 +66,6 @@ return {
 			builtin.git_branches()
 		end, { desc = "[F]ind git branch and [S]witch" })
 
-		-- Shortcut for changing your workdirectory
-		vim.keymap.set(
-			"n",
-			"<leader>wd",
-			":exec 'cd ' . expand('%:p:h')<CR>",
-			{ desc = "[W]orking [D]irectory change", noremap = true, silent = true }
-		)
-
 		-- Shortcut for swapping registers
 		vim.keymap.set("n", "<leader>fr", function()
 			builtin.registers()
