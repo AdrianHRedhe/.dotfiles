@@ -1,1 +1,2 @@
-require("adrianhredhe.commands.unified_diff_current_buffer")
+require("adrianhredhe.commands.FileCommits")
+require("adrianhredhe.commands.ProjectCommits")

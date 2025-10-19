@@ -9,12 +9,19 @@ local function get_commits_for_file(filepath)
 	-- Run git log for the current file
 	local cmd = string.format('git log --pretty=format:"%%h %%s" --follow -- %s', vim.fn.shellescape(filepath))
 	local commits = {}
+	local idx = 1
 	local handle = io.popen(cmd)
 
 	for line in handle:lines() do
 		local hash, message = line:match("^(%S+)%s+(.*)$")
 		if hash then
-			table.insert(commits, { hash = hash, message = message, display = line })
+			table.insert(commits, {
+				hash = hash,
+				message = message,
+				display = string.format("%d - %s", idx, line),
+				idx = idx,
+			})
+			idx = idx + 1
 		end
 	end
 	handle:close()
