@@ -86,9 +86,14 @@ require("lazy").setup({
 
 	require("plugins.oil"),
 	require("plugins.molten"),
+
+	-- Git plugins
 	require("plugins.fugitive"),
-	-- require("plugins.neogit"),
 	require("plugins.gv"),
+	require("plugins.flog"),
+	-- require("plugins.advanced-git-search"),
+
+	-- Dadbod / DB management
 	require("plugins.dadbod"),
 
 	require("plugins.tmux_navigator"),

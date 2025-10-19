@@ -1,11 +1,13 @@
-require "adrianhredhe.keybinds"
-require "adrianhredhe.options"
+require("adrianhredhe.keybinds")
+require("adrianhredhe.options")
 
 -- Dont load plugins to vscode
 if vim.g.vscode then
-    -- VSCODE Neovim
+	-- VSCODE Neovim
 else
-    -- Ordinary Neovim
-    require "adrianhredhe/plugins"
-end
+	-- Ordinary Neovim
+	require("adrianhredhe/plugins")
 
+	-- Load custom commands
+	require("adrianhredhe.commands")
+end

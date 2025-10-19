@@ -21,13 +21,13 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       --]]
+		vim.keymap.set("n", "<leader>ft", builtin.builtin, { desc = "[F]ind [T]elescope picker" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 		-- Slightly advanced example of overriding default behavior and theme
@@ -53,6 +53,19 @@ return {
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[f]ind [N]eovim files" })
 
+		-- Shortcut for searching prev commits
+		vim.keymap.set("n", "<leader>fc", function()
+			builtin.git_commits()
+		end, { desc = "[F]ind git [C]commits" })
+		-- Shortcut for searching commits in current buffer
+		vim.keymap.set("n", "<leader>fb", function()
+			builtin.git_bcommits()
+		end, { desc = "[F]ind git [B]uffer commits" })
+		-- Shortcut for searching git branches
+		vim.keymap.set("n", "<leader>fs", function()
+			builtin.git_branches()
+		end, { desc = "[F]ind git branch and [S]witch" })
+
 		-- Shortcut for changing your workdirectory
 		vim.keymap.set(
 			"n",
@@ -61,6 +74,7 @@ return {
 			{ desc = "[W]orking [D]irectory change", noremap = true, silent = true }
 		)
 
+		-- Shortcut for swapping registers
 		vim.keymap.set("n", "<leader>fr", function()
 			builtin.registers()
 		end, { desc = "[F]ind [R]egisters" })

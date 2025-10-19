@@ -44,3 +44,6 @@ require("adrianhredhe.options.cool-nvim")
 
 -- My Molten Cells
 require("adrianhredhe.options.molten-my-cell")
+
+-- My unified git diff of current file
+-- require("adrianhredhe.options.unified_diff_current_buffer")
