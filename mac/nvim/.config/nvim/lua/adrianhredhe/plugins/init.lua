@@ -87,6 +87,7 @@ require("lazy").setup({
 	require("plugins.oil"),
 	require("plugins.molten"),
 	require("plugins.fugitive"),
+	-- require("plugins.neogit"),
 	require("plugins.gv"),
 	require("plugins.dadbod"),
 
