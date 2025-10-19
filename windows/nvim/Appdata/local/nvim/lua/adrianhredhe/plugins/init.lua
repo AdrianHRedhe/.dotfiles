@@ -92,6 +92,7 @@ require("lazy").setup({
 	-- Fugitive
 	require("plugins.fugitive"),
 	require("plugins.gv"),
+	require("plugins.flog"),
 
 	-- MOLTEN
 	require("plugins.molten"),
