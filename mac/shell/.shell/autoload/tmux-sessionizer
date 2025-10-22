@@ -31,6 +31,21 @@ PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 # TS_LOG_FILE=<file> # will write logs to <file> Defaults to ~/.local/share/tmux-sessionizer/tmux-sessionizer.logs
 # ------------------------
 
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]] 2>/dev/null || [[ "${(%):-%x}" == "${0}" ]] 2>/dev/null; then
+    SOURCED=0
+else
+    SOURCED=1
+fi
+
+# Helper function for exiting/returning appropriately
+script_exit() {
+    if [[ $SOURCED -eq 1 ]]; then
+        return "$1"
+    else
+        exit "$1"
+    fi
+}
+
 if [[ -f "$CONFIG_FILE" ]]; then
     source "$CONFIG_FILE"
 fi
@@ -72,23 +87,23 @@ while [[ "$#" -gt 0 ]]; do
         echo "  -s, --session <name>   session command index."
         echo "  --vsplit               Create vertical split (horizontal layout) for session command"
         echo "  --hsplit               Create horizontal split (vertical layout) for session command"
-        exit 0
+        script_exit 0
         ;;
     -s | --session)
         session_idx="$2"
         if [[ -z $session_idx ]]; then
             echo "Session index cannot be empty"
-            exit 1
+            script_exit 1
         fi
 
         if [[ -z $TS_SESSION_COMMANDS ]]; then
             echo "TS_SESSION_COMMANDS is not set.  Must have a command set to run when switching to a session"
-            exit 1
+            script_exit 1
         fi
 
         if [[ -z "$session_idx" || "$session_idx" -lt 0 || "$session_idx" -ge "${#TS_SESSION_COMMANDS[@]}" ]]; then
             echo "Error: Invalid index. Please provide an index between 0 and $((${#TS_SESSION_COMMANDS[@]} - 1))."
-            exit 1
+            script_exit 1
         fi
 
         session_cmd="${TS_SESSION_COMMANDS[$session_idx]}"
@@ -103,7 +118,7 @@ while [[ "$#" -gt 0 ]]; do
         ;;
     -v | --version)
         echo "tmux-sessionizer version $VERSION"
-        exit 0
+        script_exit 0
         ;;
     *)
         user_selected="$1"
@@ -117,18 +132,18 @@ log "tmux-sessionizer($VERSION): idx=$session_idx cmd=$session_cmd user_selected
 # Validate split options are only used with session commands
 if [[ -n "$split_type" && -z "$session_idx" ]]; then
     echo "Error: --vsplit and --hsplit can only be used with -s/--session option"
-    exit 1
+    script_exit 1
 fi
 
 sanity_check() {
     if ! command -v tmux &>/dev/null; then
         echo "tmux is not installed. Please install it first."
-        exit 1
+        script_exit 1
     fi
 
     if ! command -v fzf &>/dev/null; then
         echo "fzf is not installed. Please install it first."
-        exit 1
+        script_exit 1
     fi
 }
 
@@ -163,9 +178,9 @@ is_tmux_running() {
     tmux_running=$(pgrep tmux)
 
     if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-        return 1
+        script_exit 1
     fi
-    return 0
+    script_exit 0
 }
 
 init_pane_cache() {
@@ -242,7 +257,7 @@ find_dirs() {
             path="$entry"
         fi
 
-        [[ -d "$path" ]] && find "$path" -mindepth 1 -maxdepth "${depth:-${TS_MAX_DEPTH:-1}}" -path '*/.git' -prune -o -type d -print
+        [[ -d "$path" ]] && command find "$path" -mindepth 1 -maxdepth "${depth:-${TS_MAX_DEPTH:-1}}" -path '*/.git' -prune -o -type d -print
     done
 }
 
@@ -250,7 +265,7 @@ handle_session_cmd() {
     log "executing session command $session_cmd with index $session_idx split_type=$split_type"
     if ! is_tmux_running; then
         echo "Error: tmux is not running.  Please start tmux first before using session commands."
-        exit 1
+        script_exit 1
     fi
 
     current_session=$(tmux display-message -p '#S')
@@ -260,7 +275,7 @@ handle_session_cmd() {
     else
         handle_window_session_cmd "$current_session"
     fi
-    exit 0
+    script_exit 0
 }
 
 handle_window_session_cmd() {
@@ -322,7 +337,7 @@ else
 fi
 
 if [[ -z $selected ]]; then
-    exit 0
+    script_exit 0
 fi
 
 if [[ "$selected" =~ ^\[TMUX\]\ (.+)$ ]]; then
