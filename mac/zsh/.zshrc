@@ -119,7 +119,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR="nvim"
+export PAGER="nvim -R -"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -185,8 +186,8 @@ bindkey '^Z' fg_last_job       # Bind Ctrl+X to the zle functio
 
 
 
-source /opt/homebrew/Cellar/fzf/0.55.0/shell/key-bindings.zsh
-source /opt/homebrew/Cellar/fzf/0.55.0/shell/completion.zsh
+# source /opt/homebrew/Cellar/fzf/0.55.0/shell/key-bindings.zsh
+# source /opt/homebrew/Cellar/fzf/0.55.0/shell/completion.zsh
 
 
 
@@ -206,4 +207,6 @@ funcpath="$HOME/.shell/autoload"
 FPATH="$funcpath:$FPATH"
 autoload ${=$(cd "$funcpath" && echo *)}
 
+# Where should I put you?
+bindkey -s '^f' "tmux-sessionizer\n"
 # alias remove_input_files_from_git = "git ls-files | grep -i input | xargs git rm --cached"
