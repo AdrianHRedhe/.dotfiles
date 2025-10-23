@@ -1,0 +1,16 @@
+#!/bin/bash
+sh -c "cd ~/.dotfiles/"
+sh -c "brew install stow"
+sh -c "stow -d mac -t ~ shell"
+sh -c "~/.shell/.install.sh"
+
+sh -c "stow -d mac -t ~ nvim"
+sh -c "stow -d mac -t ~ vim"
+sh -c "stow -d mac -t ~ tmux"
+sh -c "stow -d mac -t ~ zsh"
+sh -c "stow -d mac -t ~ git"
+sh -c "stow -d mac -t ~ kitty"
+sh -c "stow -d mac -t ~ karabiner"
+sh -c "stow -d mac -t ~ hammerspoon"
+sh -c "source ~/.zshrc"
+sh -c "cd ~"
