@@ -1,11 +1,23 @@
 # .dotfiles
 Here is where I keep personal config profiles for various programs to sync across computers.
 
-Main idea is to use gnu stow as a symlink farm and access packages where needed. More on that later as I will need some more fixing first
+Main idea is to use gnu stow as a symlink farm and access packages where needed.
 
-How to use stow for this:
+How to use this on a mac for almost full download:
 
-a) clone repo into ~/.dotfiles or other location of your choice
-b) cd ~/.dotfiles
-c) stow -d mac -t ~ tmux
-d) symlink is created where files in mac/tmux are put into ~ with symlink to repo unless they exist
+a) cd $HOME  
+b) git clone https://github.com/adrianhredhe/.dotfiles.git  
+c) cd ~/.dotfiles  
+d) sh mac/.install-mac.sh  
+
+Then everything should be good to go.  
+
+To manually install some packages:  
+a) cd $HOME  
+b) git clone https://github.com/adrianhredhe/.dotfiles.git  
+c) cd ~/.dotfiles  
+d) brew install stow  
+e) brew install tmux  
+f) stow -d mac -t ~ tmux  
+g) symlink is created where files in mac/tmux are put into ~ with symlink to repo unless they exist  
+h) you can use tmux as it was written into config  
