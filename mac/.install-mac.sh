@@ -2,6 +2,7 @@
 sh -c "cd ~/.dotfiles/"
 sh -c "brew install stow"
 sh -c "stow -d mac -t ~ shell"
+sh -c "chmod a+rx ~/.shell/.install.sh"
 sh -c "~/.shell/.install.sh"
 
 sh -c "stow -d mac -t ~ nvim"
