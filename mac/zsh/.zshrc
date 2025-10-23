@@ -201,7 +201,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 
 unsetopt LIST_BEEP
-xset b off
+# xset b off
 
 
 funcpath="$HOME/.shell/autoload"
