@@ -214,6 +214,9 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"pgformatter",
+				"black",
+				"isort",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -238,12 +241,12 @@ return {
 		cmd = { "ConformInfo" },
 		keys = {
 			{
-				"<leader>f",
+				"<leader>tf",
 				function()
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
-				desc = "[F]ormat buffer",
+				desc = "[T]oggle [F]ormat buffer",
 			},
 		},
 		opts = {
@@ -260,7 +263,7 @@ return {
 					lsp_format_opt = "fallback"
 				end
 				return {
-					timeout_ms = 500,
+					timeout_ms = 750,
 					lsp_format = lsp_format_opt,
 				}
 			end,
@@ -268,6 +271,7 @@ return {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
 				python = { "black", "pyright" },
+				sql = { "pg_format" },
 				-- python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
