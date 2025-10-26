@@ -211,3 +211,4 @@ autoload ${=$(cd "$funcpath" && echo *)}
 # Where should I put you?
 bindkey -s '^f' "tmux-sessionizer\n"
 # alias remove_input_files_from_git = "git ls-files | grep -i input | xargs git rm --cached"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
