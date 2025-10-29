@@ -96,6 +96,8 @@ require("lazy").setup({
 	-- Dadbod / DB management
 	require("plugins.dadbod"),
 
+	require("plugins.minuet"),
+
 	require("plugins.tmux_navigator"),
 })
 
