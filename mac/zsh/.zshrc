@@ -16,9 +16,8 @@ source ~/.shell/alias.sh
 
 
 
-eval "$(fzf --zsh)"
 source ~/fzf-git.sh/fzf-git.sh
-
+eval "$(fzf --zsh)"
 
 # Avoid issue with docker
 export DOCKER_DEFAULT_PLATFORM=linux/x86_64
