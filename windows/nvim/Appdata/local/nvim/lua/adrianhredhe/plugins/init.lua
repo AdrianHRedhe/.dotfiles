@@ -2,6 +2,8 @@
 local config_path = vim.fn.stdpath("config") .. "/lua/adrianhredhe/"
 package.path = package.path .. ";" .. config_path .. "?.lua"
 
+vim.deprecate = function() end
+
 -- Install lazy.nvim if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

@@ -18,7 +18,6 @@ return {
 			wrap = true,
 		},
 	},
-
 	-- Shortcut for changing your workdirectory
 	vim.keymap.set("n", "<leader>wd", function()
 		-- Check if we're in an Oil buffer
@@ -26,8 +25,12 @@ return {
 			local oil = require("oil")
 			local dir = oil.get_current_dir()
 			if dir then
+				-- Normalize the path for the current OS
+				dir = vim.fn.fnamemodify(dir, ":p")
 				vim.cmd("cd " .. vim.fn.fnameescape(dir))
 				print("CWD changed to: " .. dir)
+			else
+				print("Could not get Oil directory")
 			end
 		else
 			-- Regular file: change to file's directory

@@ -1,3 +1,6 @@
+-- handle \ and / in paths
+vim.opt.shellslash = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 99999
