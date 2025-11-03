@@ -3,12 +3,12 @@ return {
 	config = function()
 		require("minuet").setup({
 			virtualtext = {
-				auto_trigger_ft = { "lua" },
+				-- auto_trigger_ft = { "lua", "python" },
 				keymap = {
 					-- accept whole completion
-					-- accept = "<A-A>",
+					accept = "◊",
 					-- accept one line
-					accept_line = "<A-a>",
+					accept_line = "",
 					-- accept n lines (prompts for number)
 					-- e.g. "A-z 2 CR" will accept 2 lines
 					-- accept_n_lines = "<A-z>",
@@ -34,13 +34,19 @@ return {
 					api_key = "TERM",
 					name = "Ollama",
 					end_point = "http://localhost:11434/v1/completions",
-					model = "codegemma:2b",
+					model = "qwen2.5-coder:1.5b",
 					optional = {
 						max_tokens = 56,
 						top_p = 0.9,
 					},
 				},
 			},
+		})
+
+		vim.keymap.set("n", "<leader>ta", "<cmd>Minuet virtualtext toggle<cr>", {
+			desc = "[T]oggle Minuet-[A]I",
+			noremap = true,
+			silent = true,
 		})
 	end,
 }
