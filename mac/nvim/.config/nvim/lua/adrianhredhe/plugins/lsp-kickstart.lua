@@ -270,7 +270,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				python = { "black", "pyright" },
+				python = { "ruff" },
 				sql = { "pg_format" },
 				-- python = { "isort", "black" },
 				--
