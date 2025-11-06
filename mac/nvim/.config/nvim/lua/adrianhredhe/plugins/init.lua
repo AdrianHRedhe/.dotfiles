@@ -98,6 +98,8 @@ require("lazy").setup({
 
 	require("plugins.minuet"),
 
+	-- movement
+	require("plugins.flash"),
 	require("plugins.tmux_navigator"),
 })
 
