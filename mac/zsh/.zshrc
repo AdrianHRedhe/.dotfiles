@@ -211,3 +211,13 @@ autoload ${=$(cd "$funcpath" && echo *)}
 bindkey -s '^f' "tmux-sessionizer\n"
 # alias remove_input_files_from_git = "git ls-files | grep -i input | xargs git rm --cached"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Fix completions for uv run to autocomplete .py files
+_uv_run_mod() {
+    if [[ "$words[2]" == "run" && "$words[CURRENT]" != -* ]]; then
+        _arguments '*:filename:_files -g "*.py"'
+    else
+        _uv "$@"
+    fi
+}
+compdef _uv_run_mod uv
