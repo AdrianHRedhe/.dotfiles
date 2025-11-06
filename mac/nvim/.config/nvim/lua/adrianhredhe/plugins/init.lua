@@ -96,7 +96,8 @@ require("lazy").setup({
 	-- Dadbod / DB management
 	require("plugins.dadbod"),
 
-	require("plugins.minuet"),
+	-- AI line completion from local llm
+	-- require("plugins.minuet"),
 
 	-- movement
 	require("plugins.flash"),
