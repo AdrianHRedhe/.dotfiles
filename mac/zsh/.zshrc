@@ -221,3 +221,10 @@ _uv_run_mod() {
     fi
 }
 compdef _uv_run_mod uv
+#
+
+# export LH = "~/projects/dataplatform-lakehouse"
+# export SYN = "~/projects/dataplatform-synapse"
+# export PG = "~/projects/dataplatform-postgresql"
+# export MDR = "~/projects/dataplatform-mdr"
+# export NOTES = "~/OneDrive - Fora AB/Skrivbordet/notes"
