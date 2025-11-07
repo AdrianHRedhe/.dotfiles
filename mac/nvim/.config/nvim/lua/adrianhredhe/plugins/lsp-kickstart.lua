@@ -216,7 +216,7 @@ return {
 				"stylua", -- Used to format Lua code
 				"pgformatter",
 				"black",
-				"isort",
+				-- "isort",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
