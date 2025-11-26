@@ -1,1 +1,5 @@
 mac/vim/.vim/undodir/*
+mac/shell/.local/share/*
+mac/shell/.local/state/*
+mac/karabiner/.config/karabiner/automatic_backups/*
+mac/shell/.local/bin/*
