@@ -3,3 +3,4 @@ mac/shell/.local/share/*
 mac/shell/.local/state/*
 mac/vim/.vim/undodir/*
 mac/karabiner/.config/karabiner/automatic_backups/*
+mac/shell/.local/bin/*
