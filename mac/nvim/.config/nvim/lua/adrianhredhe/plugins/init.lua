@@ -102,6 +102,9 @@ require("lazy").setup({
 	-- movement
 	require("plugins.flash"),
 	require("plugins.tmux_navigator"),
+
+	-- Docstrings
+	require("plugins.codedocs"),
 })
 
 -- require("plugins.dadbod_connections")
