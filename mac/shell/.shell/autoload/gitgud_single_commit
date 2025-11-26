@@ -13,4 +13,5 @@ commit=$(git log --date=short --pretty=format:'%cd %h %s' --follow -- "$file" \
 [[ -z "$commit" ]] && return 1
 
 # Step 3: show the diff for that commit, limited to the selected file
-git diff "$commit"~ "$commit" -- "$file"
+# git diff "$commit"~ "$commit" -- "$file"
+git diff "$commit" -- "$file"

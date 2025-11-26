@@ -70,5 +70,7 @@ return {
 		vim.keymap.set("n", "<leader>fr", function()
 			builtin.registers()
 		end, { desc = "[F]ind [R]egisters" })
+
+		vim.keymap.set("n", "<leader>fw", ':Telescope grep_string search="<CR>', { desc = "[F]ind [W]ord" })
 	end,
 }
