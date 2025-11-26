@@ -1,0 +1,23 @@
+# Disable caching globally
+cache-dir = "~/.cache/ruff"
+
+line-length = 100
+
+[lint]
+select = [
+    "E", # pycodestyle errors
+    "F", # pyflakes
+    "I", # Isort
+    "N", # pep8 - naming
+    "W", # pycodestyle warnings
+    "UP", # pyupgrade
+    "ANN", # Annotations
+]
+
+
+ignore = [
+    "E501", # Line too long
+    "N999", # Invalid module name
+    "N812", # Cannot import pyspark.sql.functions as F
+    "N813", # Cannot import TableDefinition from lower_module_name
+]
