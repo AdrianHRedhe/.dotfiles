@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Step 1: pick a tracked file
+local file
+file=$(git ls-files | fzf --prompt="Pick a file: ")
+[[ -z "$file" ]] && return 1
+
+# Step 2: pick a commit that touched this file
+local selected commit
+selected=$(git log --date=short --pretty=format:'%cd %h %s' --follow -- "$file" \
+  | fzf --ansi --prompt="Pick a commit: " \
+        --preview "awk '{print \$2}' <<< {} | xargs -I{} git show --color=always --stat {} -- \"$file\"")
+[[ -z "$selected" ]] && return 1
+
+commit=$(echo "$selected" | awk '{print $2}')
+
+# Debug (remove these later)
+echo "Commit: [$commit]"
+
+# Step 3: show all changes from the selected commit to current version
+git diff "$commit" -- "$file"
