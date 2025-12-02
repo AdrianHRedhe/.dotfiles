@@ -13,6 +13,11 @@ return {
 			"<cmd>Trouble diagnostics toggle<cr>",
 			desc = "[T]oggle X(Trouble)",
 		},
+		{
+			"<leader>tq",
+			"<cmd>Trouble qflist toggle<cr>",
+			desc = "[T]oggle [Q]uickfix List (Trouble)",
+		},
 		-- {
 		-- 	"<leader>xX",
 		-- 	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",

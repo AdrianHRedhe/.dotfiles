@@ -36,61 +36,63 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 	-- vim-surround plugin
-	require("plugins.vim-surround"),
+	-- require("plugins.vim-surround"),
 	-- repeat plugin
 	require("plugins.vim-repeat"),
 	--  This is for another
-	require("plugins.vim-fanfingtastic"),
+	-- require("plugins.vim-fanfingtastic"),
 	-- TELESCOPE
-	require("plugins.telescope"),
+	require("plugins.movement.telescope"),
 	-- WHICH KEY
 	require("plugins.which-key"),
-	-- LSP kickstart
-	require("plugins.lsp-kickstart"),
-	-- GITSIGNS
-	require("plugins.gitsigns"),
+
+	-- LSP stuff
+	require("plugins.lsp.lsp-kickstart"),
+	require("plugins.lsp.nvim-lint"),
+	require("plugins.lsp.treesitter-kickstart"),
+
 	-- NVIM-TREE
-	require("plugins.nvim-web-devicons"),
-	require("plugins.nvim-tree"),
+	-- require("plugins.nvim-web-devicons"),
+	-- require("plugins.nvim-tree"),
 
 	-- kickstart plugins:
-	require("plugins.treesitter-kickstart"),
-	require("plugins.mini-kickstart"),
-	require("plugins.todo-comments"),
+	require("plugins.text.mini-kickstart"),
+	require("plugins.ui.todo-comments"),
 
 	-- HARPOON
-	require("plugins.harpoon"),
+	require("plugins.movement.harpoon"),
 
 	-- REPLACER FOR QUICKFIXLIST
-	require("plugins.replacer"),
+	require("plugins.text.replacer"),
 
 	-- UNDO TREE
 	require("plugins.undotree"),
 
 	-- SUBSTITUTION
-	require("plugins.substitute"),
+	require("plugins.text.substitute"),
 
 	-- TROUBLE
 	require("plugins.trouble"),
 
 	-- DRESSING (NICE UI FOR RENAMING THINGS)
-	require("plugins.dressing"),
+	require("plugins.ui.dressing"),
 	-- AutoPairs
-	require("plugins.autopairs"),
+	require("plugins.text.autopairs"),
 	-- FTERM
 	require("plugins.fterm"),
-	require("plugins.noice"),
+	require("plugins.ui.noice"),
 
 	-- Auto Session
 	require("plugins.auto-session"),
 
 	require("plugins.oil"),
-	require("plugins.molten"),
+	-- require("plugins.molten"),
 
 	-- Git plugins
-	require("plugins.fugitive"),
-	require("plugins.gv"),
-	require("plugins.flog"),
+	require("plugins.git.fugitive"),
+	require("plugins.git.gv"),
+	require("plugins.git.flog"),
+	require("plugins.git.gitsigns"),
 	-- require("plugins.advanced-git-search"),
 
 	-- Dadbod / DB management
@@ -100,11 +102,11 @@ require("lazy").setup({
 	-- require("plugins.minuet"),
 
 	-- movement
-	require("plugins.flash"),
-	require("plugins.tmux_navigator"),
+	require("plugins.movement.flash"),
+	require("plugins.movement.tmux_navigator"),
 
 	-- Docstrings
-	require("plugins.codedocs"),
+	require("plugins.text.codedocs"),
 })
 
 -- require("plugins.dadbod_connections")
