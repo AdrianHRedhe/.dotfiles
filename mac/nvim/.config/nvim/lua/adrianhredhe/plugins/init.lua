@@ -27,86 +27,44 @@ require("lazy").setup({
 			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd([[colorscheme catppuccin]])
-	-- 	end,
-	-- },
-	-- vim-surround plugin
-	-- require("plugins.vim-surround"),
-	-- repeat plugin
-	require("plugins.vim-repeat"),
-	--  This is for another
-	-- require("plugins.vim-fanfingtastic"),
-	-- TELESCOPE
-	require("plugins.movement.telescope"),
-	-- WHICH KEY
-	require("plugins.which-key"),
+	require("plugins.movement.vim-repeat"), -- repeat actions with . extends plugins
+	require("plugins.movement.telescope"), -- Fuzzy find anything and everything !!!
+
+	require("plugins.ui.which-key"), -- Helpful to remember all mappings to <leader>
+	require("plugins.ui.undotree"), -- Traverse all undohistory as a tree wow!!
+	require("plugins.ui.todo-comments"), -- shows TODOs etc nicely
+	require("plugins.ui.trouble"), -- nice way to traverse diagnostics + qflist
+	require("plugins.ui.dressing"), -- ui enabler
+	require("plugins.ui.noice"), -- Nice ui for : commands + notifications
+	require("plugins.ui.oil"), -- Beautiful handling of files and editing them
 
 	-- LSP stuff
-	require("plugins.lsp.lsp-kickstart"),
-	require("plugins.lsp.nvim-lint"),
-	require("plugins.lsp.treesitter-kickstart"),
+	require("plugins.lsp.lsp-kickstart"), -- LSP setup with CMP and formatting
+	require("plugins.lsp.nvim-lint"), -- Linting per file type
+	require("plugins.lsp.treesitter-kickstart"), -- formatting and textobjects + LSP enabler
 
-	-- NVIM-TREE
-	-- require("plugins.nvim-web-devicons"),
-	-- require("plugins.nvim-tree"),
+	-- Text manipulation
+	require("plugins.text.mini-kickstart"), -- mainly improved text-objects
+	require("plugins.text.replacer"), -- replace directly in qflist
+	require("plugins.text.substitute"), -- s to substitute whats in register
+	require("plugins.text.autopairs"), -- automatic closing brackets etc
+	require("plugins.text.codedocs"), -- Docstrings
 
-	-- kickstart plugins:
-	require("plugins.text.mini-kickstart"),
-	require("plugins.ui.todo-comments"),
-
-	-- HARPOON
-	require("plugins.movement.harpoon"),
-
-	-- REPLACER FOR QUICKFIXLIST
-	require("plugins.text.replacer"),
-
-	-- UNDO TREE
-	require("plugins.undotree"),
-
-	-- SUBSTITUTION
-	require("plugins.text.substitute"),
-
-	-- TROUBLE
-	require("plugins.trouble"),
-
-	-- DRESSING (NICE UI FOR RENAMING THINGS)
-	require("plugins.ui.dressing"),
-	-- AutoPairs
-	require("plugins.text.autopairs"),
-	-- FTERM
-	require("plugins.fterm"),
-	require("plugins.ui.noice"),
-
-	-- Auto Session
-	require("plugins.auto-session"),
-
-	require("plugins.oil"),
-	-- require("plugins.molten"),
+	-- tools
+	require("plugins.tools.fterm"), -- Floating terminal
+	require("plugins.tools.auto-session"), -- Sessions on empty nvim command
+	require("plugins.tools.dadbod"), -- DB management
+	-- AI line completion from local llm
+	-- require("plugins.tools.minuet"),
 
 	-- Git plugins
-	require("plugins.git.fugitive"),
-	require("plugins.git.gv"),
-	require("plugins.git.flog"),
-	require("plugins.git.gitsigns"),
-	-- require("plugins.advanced-git-search"),
-
-	-- Dadbod / DB management
-	require("plugins.dadbod"),
-
-	-- AI line completion from local llm
-	-- require("plugins.minuet"),
+	require("plugins.git.fugitive"), -- Git plugin with big G
+	require("plugins.git.gv"), -- log history
+	require("plugins.git.flog"), -- log history
+	require("plugins.git.gitsigns"), -- Shows changes since last commit
 
 	-- movement
-	require("plugins.movement.flash"),
-	require("plugins.movement.tmux_navigator"),
-
-	-- Docstrings
-	require("plugins.text.codedocs"),
+	require("plugins.movement.flash"), -- better f/t / F/T + quick visual navigation
+	require("plugins.movement.tmux_navigator"), -- Seamless navigation between tmux and nvim panes
+	require("plugins.movement.harpoon"), -- Could be nice not using a lot right now though
 })
-
--- require("plugins.dadbod_connections")
