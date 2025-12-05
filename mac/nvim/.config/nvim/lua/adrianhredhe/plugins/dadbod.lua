@@ -18,8 +18,14 @@ return {
 
 		-- Function to refresh and connect to a specific environment
 		local function connect_to_db(env)
+			local script_path = vim.fn.expand("~/.local/bin/db-connector")
+
+			if vim.fn.executable(script_path) == 0 then
+				vim.notify("db-connector script not found", vim.log.levels.WARN)
+				return
+			end
 			-- Get fresh token for the environment
-			local url = vim.fn.system("~/.local/bin/db-connector " .. env .. " dpa")
+			local url = vim.fn.system(script_path .. " " .. env .. " dpa")
 			url = url:gsub("\n", "")
 
 			-- Open DBUI if not already open
