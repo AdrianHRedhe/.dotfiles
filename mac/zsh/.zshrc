@@ -228,3 +228,4 @@ compdef _uv_run_mod uv
 # export PG = "~/projects/dataplatform-postgresql"
 # export MDR = "~/projects/dataplatform-mdr"
 # export NOTES = "~/OneDrive - Fora AB/Skrivbordet/notes"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
