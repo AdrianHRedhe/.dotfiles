@@ -17,7 +17,6 @@ source ~/.shell/alias.sh
 
 
 source ~/fzf-git.sh/fzf-git.sh
-eval "$(fzf --zsh)"
 
 # Avoid issue with docker
 export DOCKER_DEFAULT_PLATFORM=linux/x86_64
@@ -229,3 +228,5 @@ compdef _uv_run_mod uv
 # export MDR = "~/projects/dataplatform-mdr"
 # export NOTES = "~/OneDrive - Fora AB/Skrivbordet/notes"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -3,6 +3,7 @@
 sh -c "brew install nvim"
 sh -c "brew install tmux"
 sh -c "brew install fzf"
+sh -c "$(brew --prefix)/opt/fzf/install"
 sh -c "git clone https://github.com/junegunn/fzf-git.sh.git ~"
 
 set -e
