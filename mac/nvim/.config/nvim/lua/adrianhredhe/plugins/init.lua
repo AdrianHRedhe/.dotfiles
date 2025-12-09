@@ -57,8 +57,7 @@ require("lazy").setup({
 	require("plugins.tools.fterm"), -- Floating terminal
 	require("plugins.tools.auto-session"), -- Sessions on empty nvim command
 	require("plugins.tools.dadbod"), -- DB management
-	-- AI line completion from local llm
-	-- require("plugins.tools.minuet"),
+	require("plugins.tools.minuet"), -- AI line completion from local llm
 
 	-- Git plugins
 	require("plugins.git.fugitive"), -- Git plugin with big G

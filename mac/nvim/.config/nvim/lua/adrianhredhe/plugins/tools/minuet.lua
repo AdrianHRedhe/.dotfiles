@@ -6,9 +6,9 @@ return {
 				-- auto_trigger_ft = { "lua", "python" },
 				keymap = {
 					-- accept whole completion
-					accept = "◊",
+					accept = "◊", -- Option A
 					-- accept one line
-					accept_line = "",
+					accept_line = "", -- Option a
 					-- accept n lines (prompts for number)
 					-- e.g. "A-z 2 CR" will accept 2 lines
 					-- accept_n_lines = "<A-z>",
