@@ -35,6 +35,8 @@ return {
 			-- Conform can also run multiple formatters sequentially
 			sql = { "pg_format" },
 			python = { "black" },
+			yaml = { "prettier" },
+			json = { "prettier" },
 			-- python = { "isort", "black" },
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
