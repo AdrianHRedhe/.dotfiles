@@ -34,7 +34,7 @@ return {
 			lua = { "stylua" },
 			-- Conform can also run multiple formatters sequentially
 			sql = { "pg_format" },
-			python = { "black", "isort" },
+			python = { "isort", "black" },
 			yaml = { "prettier" },
 			json = { "prettier" },
 			-- python = { "isort", "black" },
