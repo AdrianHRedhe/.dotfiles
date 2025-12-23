@@ -45,6 +45,8 @@ require("lazy").setup({
 	require("plugins.lsp.nvim-cmp"), -- Code completion, buffer paths,
 	require("plugins.lsp.nvim-lint"), -- Linting per file type
 	require("plugins.lsp.nvim-treesitter"), -- formatting and textobjects + LSP enabler
+	require("plugins.lsp.neotest"), -- Running tests and looking at outputs
+	require("plugins.lsp.nvim-dap"), -- Debugger adapter protocol - Debugging files
 
 	-- Text manipulation
 	require("plugins.text.mini-kickstart"), -- mainly improved text-objects
