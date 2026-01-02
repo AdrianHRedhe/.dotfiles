@@ -3,8 +3,13 @@
 sh -c "brew install nvim"
 sh -c "brew install tmux"
 sh -c "brew install fzf"
+sh -c "brew install kitty"
+sh -c "brew install ripgrep"
+sh -c "brew install python"
+sh -c "brew install npm"
+sh -c "brew install raycast"
 sh -c "$(brew --prefix)/opt/fzf/install"
-sh -c "git clone https://github.com/junegunn/fzf-git.sh.git ~"
+sh -c "git clone https://github.com/junegunn/fzf-git.sh.git ~/fzf-git.sh"
 
 set -e
 # Colors for output
