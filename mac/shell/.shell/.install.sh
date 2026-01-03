@@ -47,8 +47,8 @@ else
 fi
 
 # Install command-time plugin
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    echo "${YELLOW}Installing zsh-syntax-highlighting...${NC}"
+if [ ! -d "$ZSH_CUSTOM/plugins/command-time" ]; then
+    echo "${YELLOW}Installing command-time...${NC}"
     git clone https://github.com/popstas/zsh-command-time.git "$ZSH_CUSTOM/plugins/command-time"
     echo "${GREEN}✓ command-time installed${NC}\n"
 else
