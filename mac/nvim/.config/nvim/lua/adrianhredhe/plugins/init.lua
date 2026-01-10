@@ -60,6 +60,7 @@ require("lazy").setup({
 	require("plugins.tools.auto-session"), -- Sessions on empty nvim command
 	require("plugins.tools.dadbod"), -- DB management
 	require("plugins.tools.minuet"), -- AI line completion from local llm
+	require("plugins.tools.iron"), -- Sending code to local REPL for running databricks notebooks locally
 
 	-- Git plugins
 	require("plugins.git.fugitive"), -- Git plugin with big G
