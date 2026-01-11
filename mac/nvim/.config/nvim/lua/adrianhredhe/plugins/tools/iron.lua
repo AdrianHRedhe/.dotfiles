@@ -20,7 +20,7 @@ return {
 						env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
 					},
 					databricks = {
-						command = { "ipython", "--no-autoindent" },
+						command = { "uv", "run", "ipython", "--no-autoindent" },
 						block_dividers = { "# %%", "#%%", "# Databricks notebook source", "# COMMAND ----------" },
 						format = common.bracketed_paste_python,
 						env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
