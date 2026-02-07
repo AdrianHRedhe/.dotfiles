@@ -185,7 +185,7 @@ compdef _uv_run_mod uv
 # export MDR = "~/projects/dataplatform-mdr"
 # export NOTES = "~/OneDrive - Fora AB/Skrivbordet/notes"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
+export PATH=$PATH:~/go/bin
 
 # Sourcing everything i want to source only if the files exist
 # First expression evaluates if things exists and second only runs if they do
