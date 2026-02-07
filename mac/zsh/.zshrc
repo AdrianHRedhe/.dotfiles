@@ -11,35 +11,28 @@ setopt extended_glob
 
 export BAT_THEME="Catppuccin Mocha"
 
+# Define a source_dir function
+function source_dir() {
+    if [[ -d "$1" ]]; then
+        for f in "$1"/*(N); do
+            source "$f"
+        done
+    fi
+}
 
-source ~/.shell/alias.sh
+# Sourcing aliases some which might come from other packages
+source_dir ~/.shell/aliases
+# source_dir ~/.shell/functions
 
-
-
-source ~/fzf-git.sh/fzf-git.sh
 
 # Avoid issue with docker
 export DOCKER_DEFAULT_PLATFORM=linux/x86_64
 
 # Remove 'You have mail' for cronjobs
 unset MAILCHECK
-# Load custom bash commands that i want such as check_mail
-source ~/.my_custom_commands.sh
-source ~/.my_custom_commands.zsh
 
 
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -68,34 +61,6 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
 plugins=(
 	git
 	zsh-syntax-highlighting
@@ -103,7 +68,6 @@ plugins=(
 	command-time
 )
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -123,20 +87,13 @@ export PAGER="nvim -R -"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
-
-
-
 # Example aliases
 alias zshconfig="~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="nvim"
 alias eject="diskutil eject"
+
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/adrian/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -154,7 +111,6 @@ unset __conda_setup
 export nvim="~/.config/nvim/lua/adrianhredhe"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include#"
-
 
 
 
@@ -208,6 +164,7 @@ autoload ${=$(cd "$funcpath" && echo *)}
 
 # Where should I put you?
 bindkey -s '^f' "tmux-sessionizer\n"
+
 # alias remove_input_files_from_git = "git ls-files | grep -i input | xargs git rm --cached"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
@@ -229,4 +186,11 @@ compdef _uv_run_mod uv
 # export NOTES = "~/OneDrive - Fora AB/Skrivbordet/notes"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
+
+# Sourcing everything i want to source only if the files exist
+# First expression evaluates if things exists and second only runs if they do
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+[ -f ~/fzf-git.sh/fzf-git.sh ] && source ~/fzf-git.sh/fzf-git.sh
+[ -f ~/.my_custom_commands.sh ] && source ~/.my_custom_commands.sh
+[ -f ~/.my_custom_commands.zsh ] && source ~/.my_custom_commands.zsh
