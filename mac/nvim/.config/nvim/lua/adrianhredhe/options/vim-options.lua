@@ -26,7 +26,19 @@ else
 	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
 
--- system clipboard
+-- Clipboard using system clipboard with osc 52 included e.g. copy/paste to/from remote
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
+}
+-- Use system clipboard always
 vim.opt.clipboard = "unnamedplus"
 
 -- highlight yank
