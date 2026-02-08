@@ -26,20 +26,29 @@ else
 	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
 
--- Clipboard using system clipboard with osc 52 included e.g. copy/paste to/from remote
-vim.g.clipboard = {
-	name = "OSC 52",
-	copy = {
-		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-	},
-}
--- Use system clipboard always
-vim.opt.clipboard = "unnamedplus"
+-- Detect if we're in an SSH session
+local function is_ssh()
+	return os.getenv("SSH_CLIENT") ~= nil or os.getenv("SSH_TTY") ~= nil
+end
+
+-- Clipboard settings system clipboard if not running ssh.
+if is_ssh() then
+	-- Use OSC 52 for remote sessions
+	vim.g.clipboard = {
+		name = "OSC 52",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+			["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+		},
+	}
+else
+	-- Use system clipboard locally
+	vim.opt.clipboard = "unnamedplus"
+end
 
 -- highlight yank
 vim.cmd([[
