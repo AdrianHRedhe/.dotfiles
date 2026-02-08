@@ -1,0 +1,7 @@
+# Usage: batch_tar
+# Tars all directories starting with 'batch_'
+for dir in batch_*; do
+    if [ -d "$dir" ]; then
+        tar -cf "${dir}.tar" "$dir"
+    fi
+done

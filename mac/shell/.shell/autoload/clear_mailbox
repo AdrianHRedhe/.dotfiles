@@ -1,0 +1,3 @@
+# Remove all my mails (cronjobs)
+echo 'Running: truncate -s 0 /var/mail/adrian'
+truncate -s 0 /var/mail/adrian 
