@@ -3,7 +3,6 @@
 # ------------------------------------------------------------------------------
 # Ensure PATH only contains unique entries
 typeset -U path
-eval $(/opt/homebrew/bin/brew shellenv)
 # Load editor / pager etc
 [ -f ~/.shell/env.sh ] && source ~/.shell/env.sh
 
