@@ -1,0 +1,6 @@
+# Usage: tar_all
+# Tars every directory in the current folder individually
+for dir in *(/); do 
+    echo "Compressing $dir..."
+    tar -cf "${dir%/}.tar" "$dir"
+done

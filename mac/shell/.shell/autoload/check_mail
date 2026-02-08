@@ -1,0 +1,3 @@
+# Checks My Mail for me (from cronjobs)
+echo 'Running: tail /var/mail/adrian'
+tail /var/mail/adrian

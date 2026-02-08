@@ -1,0 +1,7 @@
+# Usage: remove_tar_files
+# Remove all tar files in directory
+for file in *.tar; do
+    if [ -f "$file" ]; then  # Check if it's a regular file
+        rm "$file"  # Remove the tar file
+    fi
+done
