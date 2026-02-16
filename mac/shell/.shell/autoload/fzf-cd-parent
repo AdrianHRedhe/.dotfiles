@@ -1,0 +1,16 @@
+#!/bin/bash
+# fzf-cd-parent - fuzzy search parent directories
+local dir="$PWD"
+local dirs=()
+
+while [[ "$dir" != "/" ]]; do
+  dir="$(dirname "$dir")"
+  dirs+=("$dir")
+done
+
+local selected
+selected=$(printf '%s\n' "${dirs[@]}" | awk -F/ '{print $NF "\t" $0}' | fzf --height=40% --reverse --no-sort --with-nth=1 --delimiter='\t') 
+
+if [[ -n "$selected" ]]; then
+  cd "$(echo "$selected" | cut -f2)" || return 1
+fi

@@ -61,6 +61,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 # 4. Set up keybinds
 bindkey '^Y' autosuggest-accept
 bindkey -s '^f' "tmux-sessionizer\n"
+bindkey -s '^[a' "fzf-cd-parent\n"
 
 # Suspension and re-attachment both use ctrl-z e.g. toggle
 fg_last_job() { fg }
