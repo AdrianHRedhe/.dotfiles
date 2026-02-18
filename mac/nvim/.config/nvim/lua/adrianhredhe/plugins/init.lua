@@ -47,6 +47,7 @@ require("lazy").setup({
 	require("plugins.lsp.nvim-treesitter"), -- formatting and textobjects + LSP enabler
 	require("plugins.lsp.neotest"), -- Running tests and looking at outputs
 	require("plugins.lsp.nvim-dap"), -- Debugger adapter protocol - Debugging files
+	require("plugins.lsp.nvim-metals"), -- Scala specific LSP (not good support via mason etc)
 
 	-- Text manipulation
 	require("plugins.text.mini-kickstart"), -- mainly improved text-objects
@@ -67,6 +68,7 @@ require("lazy").setup({
 	require("plugins.git.gv"), -- log history
 	require("plugins.git.flog"), -- log history
 	require("plugins.git.gitsigns"), -- Shows changes since last commit
+	require("plugins.git.git-worktrees"), -- Move around in worktrees
 
 	-- movement
 	require("plugins.movement.flash"), -- better f/t / F/T + quick visual navigation
