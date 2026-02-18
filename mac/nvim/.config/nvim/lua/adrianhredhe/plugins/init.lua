@@ -67,6 +67,7 @@ require("lazy").setup({
 	require("plugins.git.gv"), -- log history
 	require("plugins.git.flog"), -- log history
 	require("plugins.git.gitsigns"), -- Shows changes since last commit
+	require("plugins.git.git-conflict"), -- Nice resolving of conflicts
 
 	-- movement
 	require("plugins.movement.flash"), -- better f/t / F/T + quick visual navigation

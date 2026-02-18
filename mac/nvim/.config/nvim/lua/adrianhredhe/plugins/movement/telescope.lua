@@ -90,5 +90,15 @@ return {
 		vim.keymap.set("n", "<leader>fk", function()
 			builtin.keymaps()
 		end, { desc = "[F]ind [K]eymaps" })
+
+		vim.keymap.set("n", "<leader>fu", function()
+			require("telescope.builtin").git_files({
+				git_command = { "git", "diff", "--name-only", "--diff-filter=U" },
+			})
+		end, { desc = "[F]ind [U]nmerged" })
+
+		vim.keymap.set("n", "<leader>fq", function()
+			require("telescope.builtin").quickfix()
+		end, { desc = "[F]ind [Q]uickfix" })
 	end,
 }
