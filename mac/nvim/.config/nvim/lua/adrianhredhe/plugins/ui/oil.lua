@@ -20,7 +20,7 @@ return {
 	},
 
 	-- Shortcut for changing your workdirectory
-	vim.keymap.set("n", "<leader>wd", function()
+	vim.keymap.set("n", "<leader>cd", function()
 		-- Check if we're in an Oil buffer
 		if vim.bo.filetype == "oil" then
 			local oil = require("oil")
@@ -37,5 +37,5 @@ return {
 				print("CWD changed to: " .. filepath)
 			end
 		end
-	end, { desc = "[W]orking [D]irectory change", noremap = true, silent = true }),
+	end, { desc = "[C]hange working [D]irectory", noremap = true, silent = true }),
 }
