@@ -72,5 +72,23 @@ return {
 		end, { desc = "[F]ind [R]egisters" })
 
 		vim.keymap.set("n", "<leader>fw", ':Telescope grep_string search="<CR>', { desc = "[F]ind [W]ord" })
+
+		vim.keymap.set("n", "<leader>ff", function()
+			builtin.find_files({
+				find_command = { "rg", "--files", "--iglob", "!.git", "--hidden" },
+			})
+		end, { desc = "[F]ind [F]iles" })
+
+		vim.keymap.set("n", "<leader>fg", function()
+			builtin.live_grep()
+		end, { desc = "[F]ind live [G]rep" })
+
+		vim.keymap.set("n", "<leader>fh", function()
+			builtin.help_tags()
+		end, { desc = "[F]ind [H]elp tags" })
+
+		vim.keymap.set("n", "<leader>fk", function()
+			builtin.keymaps()
+		end, { desc = "[F]ind [K]eymaps" })
 	end,
 }
