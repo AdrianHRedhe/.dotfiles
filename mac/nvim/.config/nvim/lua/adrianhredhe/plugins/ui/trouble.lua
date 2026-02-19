@@ -3,9 +3,25 @@ return {
 	cmd = "Trouble",
 	config = function()
 		require("trouble").setup({
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
+			auto_preview = true,
+			focus = true,
+			follow = true,
+			preview = {
+				type = "main",
+				scratch = false,
+			},
+		})
+
+		-- Map so that telescope can send to trouble
+		local open_with_trouble = require("trouble.sources.telescope").open
+		local telescope = require("telescope")
+		telescope.setup({
+			defaults = {
+				mappings = {
+					i = { ["<c-t>"] = open_with_trouble },
+					n = { ["<c-t>"] = open_with_trouble },
+				},
+			},
 		})
 	end,
 	keys = {
@@ -19,17 +35,6 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "[T]oggle [Q]uickfix List (Trouble)",
 		},
-		-- {
-		-- 	"<leader>xX",
-		-- 	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-		-- 	desc = "Buffer Diagnostics (Trouble)",
-		-- },
-		-- {
-		-- 	"<leader>cs",
-		-- 	"<cmd>Trouble symbols toggle focus=false<cr>",
-		-- 	desc = "Symbols (Trouble)",
-		-- },
-		-- {
 		-- 	"<leader>cl",
 		-- 	"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
 		-- 	desc = "LSP Definitions / references / ... (Trouble)",
