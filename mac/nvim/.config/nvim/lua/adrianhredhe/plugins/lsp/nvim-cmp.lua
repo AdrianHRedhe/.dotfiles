@@ -9,7 +9,16 @@ return {
 			event = "InsertEnter",
 			opts = function()
 				local snippets = require("mini.snippets")
-				return { snippets = { snippets.gen_loader.from_lang() } } -- Load snippets based on filetype
+				return {
+					-- Load snippets based on filetype
+					snippets = { snippets.gen_loader.from_lang() },
+					mappings = {
+						expand = "", -- Disable expansion (nvim-cmp handles this)
+						jump_next = "<C-n>", -- Change keys for tabstop jumping
+						jump_prev = "<C-p>", -- Change keys for tabstop jumping
+						stop = "<C-c>", -- Keep stop as default
+					},
+				}
 			end,
 		},
 		"abeldekat/cmp-mini-snippets", -- nvim-cmp source for mini.snippets
@@ -34,16 +43,25 @@ return {
 				end,
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
-
-			-- For an understanding of why these mappings were
-			-- chosen, you will need to read `:help ins-completion`
-			--
-			-- No, but seriously. Please read `:help ins-completion`, it is really good!
 			mapping = cmp.mapping.preset.insert({
+				-- Only activate when CMP menu is visible
 				-- Select the [n]ext item
-				["<C-n>"] = cmp.mapping.select_next_item(),
+				["<C-n>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					else
+						fallback() -- Let mini.snippets handle it
+					end
+				end, { "i", "s" }),
+
 				-- Select the [p]revious item
-				["<C-p>"] = cmp.mapping.select_prev_item(),
+				["<C-p>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					else
+						fallback() -- Let mini.snippets handle it
+					end
+				end, { "i", "s" }),
 
 				-- Scroll the documentation window [b]ack / [f]orward
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -56,15 +74,7 @@ return {
 				--  This will expand snippets if the LSP sent a snippet.
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 
-				-- If you prefer more traditional completion keymaps,
-				-- you can uncomment the following lines
-				--['<CR>'] = cmp.mapping.confirm { select = true },
-				--['<Tab>'] = cmp.mapping.select_next_item(),
-				--['<S-Tab>'] = cmp.mapping.select_prev_item(),
-
 				-- Manually trigger a completion from nvim-cmp.
-				--  Generally you don't need this, because nvim-cmp will display
-				--  completions whenever it has completion options available.
 				["<C-Space>"] = cmp.mapping.complete({}),
 			}),
 			sources = {
