@@ -26,3 +26,13 @@
     pager=no
     old = red
     new = green
+
+; If git-jump is not installed, install it
+[alias]
+    jump = "!f() { \
+        JUMP=\"$HOME/.local/bin/git-jump\"; \
+        [ ! -f \"$JUMP\" ] && mkdir -p \"$HOME/.local/bin\" && \
+        curl -fsSL -o \"$JUMP\" https://raw.githubusercontent.com/git/git/master/contrib/git-jump/git-jump && \
+        chmod +x \"$JUMP\"; \
+        \"$JUMP\" \"$@\"; \
+    }; f"
