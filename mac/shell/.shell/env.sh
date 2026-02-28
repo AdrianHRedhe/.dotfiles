@@ -8,3 +8,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 # Avoid issue with docker
 export DOCKER_DEFAULT_PLATFORM=linux/x86_64
+
+# Git-jump editor
+export GIT_JUMP_EDITOR="nvim -c 'Trouble qflist'"
