@@ -3,7 +3,16 @@ return {
 	tag = "0.1.8",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
+		-- Map so that telescope can send to trouble
+		local open_with_trouble = require("trouble.sources.telescope").open
 		require("telescope").setup({
+			defaults = {
+				-- Remove default mappings that are overwritten by trouble.nvim
+				mappings = {
+					i = { ["<c-t>"] = open_with_trouble },
+					n = { ["<c-t>"] = open_with_trouble },
+				},
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
