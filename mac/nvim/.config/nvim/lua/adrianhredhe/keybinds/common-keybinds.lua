@@ -11,15 +11,17 @@ vim.g.maplocalleader = " "
 
 -- Normal mode:
 -- basic movements
-keymap("n", "j", "h", opts)
-keymap("n", "k", "j", opts)
-keymap("n", "l", "k", opts)
-keymap("n", "ö", "l", opts)
-keymap("n", "+", "$", opts)
+-- keymap("n", "j", "h", opts)
+-- keymap("n", "k", "j", opts)
+-- keymap("n", "l", "k", opts)
+-- keymap("n", "ö", "l", opts)
+-- keymap("n", "+", "$", opts)
 
 -- handle linewraps (test to make sure it works)
-vim.keymap.set("n", "l", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
-vim.keymap.set("n", "k", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
+-- vim.keymap.set("n", "l", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
+-- vim.keymap.set("n", "k", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
 
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
