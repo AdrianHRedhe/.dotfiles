@@ -75,4 +75,5 @@ require("lazy").setup({
 	require("plugins.movement.flash"), -- better f/t / F/T + quick visual navigation
 	require("plugins.movement.tmux_navigator"), -- Seamless navigation between tmux and nvim panes
 	require("plugins.movement.harpoon"), -- Could be nice not using a lot right now though
+	require("plugins.movement.hardtime"), -- Disabling repeated use of same motion so as to become better at picking the right one.
 })
