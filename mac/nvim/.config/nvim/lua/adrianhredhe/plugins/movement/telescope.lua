@@ -92,6 +92,14 @@ return {
 			builtin.live_grep()
 		end, { desc = "[F]ind live [G]rep" })
 
+		vim.keymap.set("n", "<leader>fG", function()
+			builtin.live_grep({
+				additional_args = function()
+					return { "--hidden", "--iglob", "!.git" }
+				end,
+			})
+		end, { desc = "[F]ind live [G]rep with hidden files" })
+
 		vim.keymap.set("n", "<leader>fh", function()
 			builtin.help_tags()
 		end, { desc = "[F]ind [H]elp tags" })
