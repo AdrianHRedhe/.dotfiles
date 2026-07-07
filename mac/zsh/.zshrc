@@ -44,6 +44,9 @@ plugins=(
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
+# Prepend machine hostname to the prompt
+PROMPT='%{$fg[yellow]%}%m%{$reset_color%} '$PROMPT
+
 # ------------------------------------------------------------------------------
 # 4. COMPLETIONS & KEYBINDS
 # ------------------------------------------------------------------------------
