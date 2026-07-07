@@ -38,7 +38,9 @@ return {
 				expand = function(args)
 					local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
 					insert({ body = args.body })
-					cmp.resubscribe({ "TextChangedI", "TextChangedP" })
+					if cmp.resubscribe then
+						cmp.resubscribe({ "TextChangedI", "TextChangedP" })
+					end
 					require("cmp.config").set_onetime({ sources = {} })
 				end,
 			},
