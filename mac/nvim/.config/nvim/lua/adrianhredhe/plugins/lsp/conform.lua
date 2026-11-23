@@ -37,6 +37,7 @@ return {
 			python = { "isort", "ruff_format", "ruff_fix" },
 			yaml = { "prettier" },
 			json = { "prettier" },
+			rust = { "rustfmt" },
 			-- python = { "isort", "black" },
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
